@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
-git clone https://github.com/codelion/pathgrind.git
+git clone --depth 1 https://github.com/codelion/pathgrind.git
 cd pathgrind
-patch -p1 < ../valgrind-libc.patch
+git apply ../pathgrind.patch
 ./install.sh
 chmod 755 fuzz/fuzz.py fuzz/gui.py fuzz/plotfuzz.py
 cd ../
